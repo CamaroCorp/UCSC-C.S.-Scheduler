@@ -1,2 +1,2 @@
-# website
-This will be a webapp
+# Schededular
+This will be a shcedular for computer science classes in UCSC
