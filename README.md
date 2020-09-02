@@ -1,2 +1,2 @@
-# Schededular
-This will be a shcedular for computer science classes in UCSC
+# Scheduler
+This will be a scheduler for computer science classes in UCSC
