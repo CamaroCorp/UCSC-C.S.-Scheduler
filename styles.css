@@ -1,8 +1,11 @@
+/* headings */
 h1{
   background-color: #ffc93c;
   margin: 0;
   padding: 21px 0 21px 20px;
 }
+
+/* grid components */
 .grid-container{
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
