@@ -3,6 +3,7 @@ h1{
   background-color: #ffc93c;
   margin: 0;
   padding: 21px 0 21px 20px;
+  border-radius:  10px;
 }
 
 /* grid components */
