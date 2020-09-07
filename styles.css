@@ -61,7 +61,7 @@
   text-align: center;
 }
 
-.quarters{
+.quarter{
   text-align: center;
   vertical-align: center;
   line-height: 110px;
@@ -72,19 +72,22 @@
   border-color: rgb(118, 118, 118);
 }
 
-.quarters:hover{
+.quarter:hover{
   background-color: rgb(225, 225, 225);
   border-color: rgb(74, 74, 74);
 }
 
-.quarters a {
+.quarter a {
     text-decoration: none;
     color: black;
 }
 
-.quarters a:hover {
+.quarter a:hover {
     color: blue;
 }
+
+
+
 
 
 .back {
