@@ -1,5 +1,5 @@
-/* headings */
-.head {
+/* header */
+.header {
   background-color: #ffc93c;
   margin: 0px;
   padding: 20px 20px 40px 20px;
@@ -10,33 +10,31 @@
   border: 2px solid blue;
 }
 
-.head ul {
+.nav-links {
     border-radius:  10px;
     background-color: #ffc93c;
     text-align: right;
     margin-top: 8px;
-}
-
-.head ul {
     list-style: none;
     padding-left: 0px;
 }
 
-.head ul li {
+.nav-links li {
     display: inline;
 }
 
-.head ul li a {
+.nav-links li a {
     text-decoration: none;
     color: #000000;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-.head ul li a:hover {
+.nav-links li a:hover {
     color: blue;
 }
 
+/* SCHEDULER PAGE */
 /* grid components */
 .grid-container{
   display: grid;
@@ -74,6 +72,11 @@
   border-color: rgb(118, 118, 118);
 }
 
+.quarters:hover{
+  background-color: rgb(225, 225, 225);
+  border-color: rgb(74, 74, 74);
+}
+
 .quarters a {
     text-decoration: none;
     color: black;
@@ -83,10 +86,6 @@
     color: blue;
 }
 
-.quarters:hover{
-  background-color: rgb(225, 225, 225);
-  border-color: rgb(74, 74, 74)
-}
 
 .back {
     background-color: white;
