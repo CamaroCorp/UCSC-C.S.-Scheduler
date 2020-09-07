@@ -1,9 +1,38 @@
 /* headings */
-h1{
+.head {
   background-color: #ffc93c;
-  margin: 0;
-  padding: 21px 0 21px 20px;
+  margin: 0px;
+  padding: 20px 20px 40px 20px;
   border-radius:  10px;
+  line-height: 0px;
+  text-align: left;
+  height: 20px;
+  border: 2px solid blue;
+}
+
+/* Menu */
+
+.menu {
+    border-radius:  10px;
+    background-color: #ffc93c;
+    text-align: left;
+    border: 2px solid blue;
+    margin-top: 8px;
+}
+
+.menu ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.menu ul li {
+    display: inline;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #000000;
+    padding-left: 30px;
 }
 
 /* grid components */
