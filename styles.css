@@ -76,3 +76,84 @@
   background-color: rgb(225, 225, 225);
   border-color: rgb(74, 74, 74)
 }
+
+.back {
+    background-color: white;
+}
+
+.card {
+    height: 300px;
+    width: 400px;
+    background-color: #33320F;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.add {
+    float: right;
+    font-weight: bold;
+    margin: 4px;
+    background-color: #00C400;
+    height: 60px;
+    width: 190px;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    border: 2px solid black;
+}
+
+.add:hover {
+    background-color: #32CD32;
+}
+
+.remove {
+    font-weight: bold;
+    margin: 4px;
+    background-color: #F20F0F;
+    height: 60px;
+    width: 190px;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    border: 2px solid black;
+}
+
+.remove:hover {
+    background-color: #F23F3F;
+}
+
+.course {
+    margin: 4px;
+    background-color: orange;
+    height: 220px;
+    width: 388px;
+    border-radius: 10px;
+    border: 2px solid black;
+
+}
+
+.courseheader {
+    margin: 6px;
+    line-height: 0px;
+    text-align: left;
+    padding: 8px 8px 8px 20px;
+    background-color: #E19600;
+    border: 2px solid black;
+    height: 40px;
+    width: 344px;
+    border-radius: 10px;
+}
+
+.descriptionheader {
+    margin: 6px;
+    background-color: #E19600;
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 140px;
+}
+
+.description {
+    padding: 0px 10px 10px 20px;
+}
