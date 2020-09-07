@@ -10,31 +10,30 @@
   border: 2px solid blue;
 }
 
-/* Menu */
-.menu {
+.head ul {
     border-radius:  10px;
     background-color: #ffc93c;
-    text-align: left;
-    border: 2px solid blue;
+    text-align: right;
     margin-top: 8px;
 }
 
-.menu ul {
+.head ul {
     list-style: none;
     padding-left: 0px;
 }
 
-.menu ul li {
+.head ul li {
     display: inline;
 }
 
-.menu ul li a {
+.head ul li a {
     text-decoration: none;
     color: #000000;
-    padding-left: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-.menu ul li a:hover {
+.head ul li a:hover {
     color: blue;
 }
 
