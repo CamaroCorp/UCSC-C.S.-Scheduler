@@ -118,6 +118,7 @@
 
 .add:hover {
     background-color: #32CD32;
+    cursor: pointer;
 }
 
 .remove {
@@ -135,6 +136,7 @@
 
 .remove:hover {
     background-color: #F23F3F;
+    cursor: pointer;
 }
 
 .course {
