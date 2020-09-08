@@ -18,9 +18,12 @@ for (var i=0; i<number_of_quarters; i++){
     year_index = Math.floor(chosen_quarter_number/4);
     chosen_season = seasons[season_index].innerHTML;
     chosen_year = years[year_index].innerHTML;
-    alert("pull - " + chosen_season + " " + chosen_year + " - from a database?");
 
+<<<<<<< HEAD
     window.location.href = "rough..html";
+=======
+    window.location.href = "rough.html";
+>>>>>>> 4b24e99c6fb4a73c89b827eb8808d36d077ec80b
   });
 }
 document.querySelector(".current-term").innerHTML = chosen_season + " " + chosen_year;
