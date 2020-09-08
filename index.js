@@ -20,7 +20,7 @@ for (var i=0; i<number_of_quarters; i++){
     chosen_year = years[year_index].innerHTML;
     alert("pull - " + chosen_season + " " + chosen_year + " - from a database?");
 
-    window.location.href = "editSchedule.html";
+    window.location.href = "rough..html";
   });
 }
 document.querySelector(".current-term").innerHTML = chosen_season + " " + chosen_year;
