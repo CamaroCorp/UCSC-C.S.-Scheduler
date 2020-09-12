@@ -169,6 +169,8 @@
     border: 2px solid black;
     border-radius: 10px;
     height: 140px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .description {
