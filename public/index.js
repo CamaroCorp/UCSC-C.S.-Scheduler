@@ -10,7 +10,7 @@ var chosen_season = "season";
 var chosen_year = "year";
 
 //Adds a click functionality to each quarter in order to redirect users to the specified "edit schedule" page
-for (var i=0; i<number_of_quarters; i++){
+for (var i=0; i<number_of_quarters-1; i++){
   document.querySelectorAll(".quarter")[i].addEventListener("click", function(){
 
     chosen_quarter_number = this.id;
@@ -18,8 +18,7 @@ for (var i=0; i<number_of_quarters; i++){
     year_index = Math.floor(chosen_quarter_number/4);
     chosen_season = seasons[season_index].innerHTML;
     chosen_year = years[year_index].innerHTML;
-    
-    window.location.href = "rough.html";
+    str = "q"+ i;
+    document.forms["q1"].submit();
     });
 }
-document.querySelector(".current-term").innerHTML = chosen_season + " " + chosen_year;
