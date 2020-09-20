@@ -10,8 +10,8 @@
       <div class="year">2019-2020</div>
       <form name = "q1" class="quarterForms" action= "/edit" method="post">
         <div class="quarter grid-container" id="0">
-          <!--EJS variable array "newListItems" supplied by server app.js-->
-          <% for (var i=0; i<newListItems.length; i++){ %>
+          <!--EJS variable array "newCourseListItems" supplied by server app.js-->
+          <% for (var i=0; i<newCourseListItems.length; i++){ %>
             <div class="coursesList">
               <%= newListItems[i] %>
             </div>
