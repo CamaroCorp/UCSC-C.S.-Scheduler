@@ -7,26 +7,37 @@
     </head>
     <body class="back">
         <header class="header">
-            <h1>Offered Classes: Fall 2020</h1>
+            <h1>Fall 2020</h1>
         </header>
+
+        <div class="thisQuarterGrid grid-container">
+          <!--EJS variable array "newCourseListItems" supplied by server app.js-->
+          <% for (var i=0; i<newCourseListItems.length; i++){ %>
+            <div class="chosenCourses">
+              <%= newCourseListItems[i] %>
+              <div class="remove">
+                Remove
+              </div>
+            </div>
+          <% } %>
+        </div>
         <div class="card">
-            <div class="add">
-                Add Class
-            </div>
-            <div class="remove">
-                Remove Class
-            </div>
-            <div class="course">
-                <div class="courseheader">
+            <form class="allForms" action="index.html" method="post">
+              <button class="add">
+                  Add Class
+              </button>
+            </form>
+            <div class="cardCourse">
+                <div class="cardCourseName">
                 <h2>COURSE - CSE 20</h2>
                 </div>
-                <div class="descriptionheader">
-                    <p class="description">Description :
+                  <p class="cardCourseDescription">
+                    Description :
                     <br><br>
                     Learn the fundamentals of the Python programming language. From basic syntax to recursion, CSE 20 will introduce you.... ( No prior programming experience required ).
                     Learn the fundamentals of the Python programming language. From basic syntax to recursion, CSE 20 will introduce you.... ( No prior programming experience required )
                     Learn the fundamentals of the Python programming language. From basic syntax to recursion, CSE 20 will introduce you.... ( No prior programming experience required )
-                    </p>
+                  </p>
                 </div>
             </div>
         </div>
@@ -34,14 +45,11 @@
             <div class="add">
                 Add Class
             </div>
-            <div class="remove">
-                Remove Class
-            </div>
-            <div class="course">
-                <div class="courseheader">
+            <div class="cardCourse">
+                <div class="cardCourseName">
                 <h2>COURSE - CSE 30</h2>
                 </div>
-                <div class="descriptionheader">
+                <div class="cardCourseDescription">
                     <p class="description">Description :
                     <br><br>
                     Learn more advanced Python concepts, such as Trees, Stacks, and...
@@ -53,14 +61,11 @@
             <div class="add">
                 Add Class
             </div>
-            <div class="remove">
-                Remove Class
-            </div>
-            <div class="course">
-                <div class="courseheader">
+            <div class="cardCourse">
+                <div class="cardCourseName">
                 <h2>COURSE - CSE 12</h2>
                 </div>
-                <div class="descriptionheader">
+                <div class="cardCourseDescription">
                     <p class="description">Description :
                     <br><br>
                     Get fucked over by MIPS assembly....
@@ -68,7 +73,5 @@
                 </div>
             </div>
         </div>
-    </body>
     <script src="index.js" charset="utf-8"></script>
-</html>
 <%- include("footer")-%>

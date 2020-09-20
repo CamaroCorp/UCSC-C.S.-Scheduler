@@ -21,7 +21,7 @@ app.get("/", function(req, res) {
 ////////Load the edit page "edit.ejs" (i.e. edit.ejs "gets" "/edit" from app.js)/////////
 app.get("/edit", function(req, res) {
   //Express (using ejs) finds & modifies the edit.ejs file
-  res.render("edit");
+  res.render("edit",{newCourseListItems: courses});
 });
 ////For when a user clicks on a quarter, activating the html form "q1" (schedule.ejs)
 app.post("/edit", function(req, res){
