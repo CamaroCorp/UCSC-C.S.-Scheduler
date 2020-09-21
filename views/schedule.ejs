@@ -1,41 +1,36 @@
-
 <%- include("header")-%>
-    <!-- The main grid -->
-    <div class="grid-container main-grid">
-      <div class=""></div>
-      <div class="season">Fall</div>
-      <div class="season">Winter</div>
-      <div class="season">Spring</div>
-      <div class="season">Summer</div>
-      <div class="year">2019-2020</div>
-      <form name = "q1" class="quarterForms" action= "/edit" method="post">
-        <div class="quarter grid-container" id="0">
-          <!--EJS variable array "newCourseListItems" supplied by server app.js-->
-          <% for (var i=0; i<newCourseListItems.length; i++){ %>
-            <p>
-              <%= newCourseListItems[i] %>
-            </p>
+<!-- The main grid -->
+<div class="main-grid">
+
+  <div class=""></div>
+  <div class="season">Fall</div>
+  <div class="season">Winter</div>
+  <div class="season">Spring</div>
+  <div class="season">Summer</div>
+
+  <% for(var i=0; i<years.length; i++){ %>
+    <div class="year"><%= years[i] %></div>
+    <% let quarterCount=0;%>
+    <% for(var x=0; x<4; x++){ %>
+      <form class="quarter" action="/edit" method="post">
+        <button name="q" value=<%=quarterCount %>>
+          <!--EJS variable array "quarterCourses" supplied by server app.js-->
+          <% for(var c=0; c<quarterCourses.length; c++){ %>
+          <%= quarterCourses[c] %> <br>
           <% } %>
-        </div>
+        </button>
       </form>
-      <div class="quarter" id="1"></div>
-      <div class="quarter" id="2"></div>
-      <div class="quarter" id="3"></div>
-      <div class="year">2020-2021</div>
-      <div class="quarter" id="4"></div>
-      <div class="quarter" id="5"></div>
-      <div class="quarter" id="6"></div>
-      <div class="quarter" id="7"></div>
-      <div class="year">2021-2022</div>
-      <div class="quarter" id="8"></div>
-      <div class="quarter" id="9"></div>
-      <div class="quarter" id="10"></div>
-      <div class="quarter" id="11"></div>
-      <div class="year">2022-2023</div>
-      <div class="quarter" id="12"></div>
-      <div class="quarter" id="13"></div>
-      <div class="quarter" id="14"></div>
-      <div class="quarter" id="15"></div>
-    </div>
-    <script src="index.js" charset="utf-8"></script>
+      <% quarterCount++;%>
+    <% } %>
+  <% } %>
+</div>
+<div class="addRemoveDiv">
+  <form action="/" method="post">
+    <button class="addYear" name="editYear" value="add">Add Year</button>
+  </form>
+  <form action="/" method="post">
+    <button class="RemoveYear" name="editYear" value="remove">Remove Year</button>
+  </form>
+</div>
+<script src="index.js" charset="utf-8"></script>
 <%- include("footer")-%>

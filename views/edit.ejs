@@ -7,22 +7,39 @@
     </head>
     <body class="back">
         <header class="header">
-            <h1>Fall 2020</h1>
+          <div class="">
+            <h1><%=currentTerm%></h1>
+          </div>
+          <div class="nav-links-div">
+            <ul class="nav-links">
+                <li><a href="https://docs.google.com/document/d/1nDYCS-lYgaSfeYu8J-itvHXummglf5yfUpJaEM4bJ9M/edit" target="_blank">Google Docs</a></li>
+                  |
+                <li><a href="">Home</a></li>
+                  |
+                <li><a href="">Scheduler</a></li>
+                  |
+                <li><a href="https://catalog.ucsc.edu/Current/General-Catalog/Courses/CSE-Computer-Science-and-Engineering" target = "_blank">Course Catalog</a></li>
+                  |
+                <li><a href="">Requirements</a></li>
+            </ul>
+          </div>
         </header>
 
-        <div class="thisQuarterGrid grid-container">
-          <!--EJS variable array "newCourseListItems" supplied by server app.js-->
-          <% for (var i=0; i<newCourseListItems.length; i++){ %>
+        <div class="thisQuarterGrid">
+          <!--EJS variable array "quarterCourses" supplied by server app.js-->
+          <% for (var i=0; i<quarterCourses.length; i++){ %>
             <div class="chosenCourses">
-              <%= newCourseListItems[i] %>
-              <div class="remove">
-                Remove
-              </div>
+              <%= quarterCourses[i] %>
+              <form class="" action="/edit" method="post" style="margin: 0px;">
+                <button class="remove">
+                  Remove
+                </button>
+              </form>
             </div>
           <% } %>
         </div>
         <div class="card">
-            <form class="allForms" action="index.html" method="post">
+            <form class="allForms" action="/edit" method="post">
               <button class="add">
                   Add Class
               </button>
