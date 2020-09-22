@@ -8,28 +8,28 @@
   <div class="season">Spring</div>
   <div class="season">Summer</div>
 
+  <% let quarterCount=0;%>
   <% for(var i=0; i<years.length; i++){ %>
     <div class="year"><%= years[i] %></div>
-    <% let quarterCount=0;%>
     <% for(var x=0; x<4; x++){ %>
-      <form class="quarter" action="/edit" method="post">
-        <button name="q" value=<%=quarterCount %>>
-          <!--EJS variable array "quarterCourses" supplied by server app.js-->
-          <% for(var c=0; c<quarterCourses.length; c++){ %>
-          <%= quarterCourses[c] %> <br>
-          <% } %>
+      <form class="quarter" action="/" method="post">
+        <button name="name" value=<%=quarterCount%>>
+          <!--EJS variable array "usersCourses" supplied by server app.js-->
+            <% for(var c=0; c<usersCourses[quarterCount].length; c++){ %>
+              <%= usersCourses[quarterCount][c] %> <br>
+        <% } %>
         </button>
       </form>
       <% quarterCount++;%>
     <% } %>
   <% } %>
 </div>
-<div class="addRemoveDiv">
+<div class="add-remove-div">
   <form action="/" method="post">
-    <button class="addYear" name="editYear" value="add">Add Year</button>
+    <button class="add-year" name="name" value="add-year">Add Year</button>
   </form>
   <form action="/" method="post">
-    <button class="RemoveYear" name="editYear" value="remove">Remove Year</button>
+    <button class="remove-year" name="name" value="remove-year">Remove Year</button>
   </form>
 </div>
 <script src="index.js" charset="utf-8"></script>
