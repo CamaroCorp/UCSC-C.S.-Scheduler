@@ -10,6 +10,7 @@ const app = express();
 /////////Use those library objects////////////
 ///////////////Store courses as array (temporary)/////////////////////
 let usersCourses = [["CSE 20","MATH 19A","STEV 1"],['WRIT 1','STEV 2','CSE 30'],['INVOLUNTARY LEAVE OF ABSENSE'],['MATH 19B','MATH 21','HIS 10A','THEA 14','STAT 131','MATH 23A'],[],[],[],[],[],[],[],[],[],[],[],[]];
+let allCourses = ['CSE 20','CSE 30','CSE 16', 'CSE 12', 'CSE 13S']
 let currentTerm = "Undefined";
 let seasons = ["Fall", "Winter", "Spring", "Summer"];
 let years = ["Freshman", "Sophomore", "Junior", "Senior"];
@@ -57,39 +58,38 @@ app.post("/", function(req, res){
   }else{
     ////redirect to the edit page
     chosenTerm_index = req.body.name;
-    console.log(chosenTerm_index);
     let season_index = chosenTerm_index %4;
     let year_index = Math.floor(chosenTerm_index/4);
     let season = seasons[season_index];
     let year = years[year_index];
-    currentTerm = season + " / " + year;
+    currentTerm = season + " | " + year;
     res.redirect("/edit");
   }
 });
 ////////Load the edit page "edit.ejs" (i.e. edit.ejs "gets" "/edit" from app.js)/////////
 app.get("/edit", function(req, res) {
   //Express (using ejs) finds & modifies the edit.ejs file
-  console.log(usersCourses)
   res.render("edit",{
     currentTermCourses: usersCourses[chosenTerm_index],
-    currentTerm: (currentTerm + " Year")
+    currentTerm: (currentTerm + " Year"),
+    allCourses: allCourses
   });
 });
 
 ////For when a user clicks on a quarter, activating the html form "quarter" (schedule.ejs)
 app.post("/edit", function(req, res){
-  if (req.body.name === "add-course"){
+  if (req.body.addCourse){
+    let courseName = allCourses[req.body.addCourse];
+    usersCourses[chosenTerm_index].push(courseName);
     res.redirect("/edit");
   }else{
-      let index = parseInt(req.body.name);
-      console.log(index)
+      let index = parseInt(req.body.removeCourse);
       let a = usersCourses[chosenTerm_index].slice(0, index);
       let b = usersCourses[chosenTerm_index].slice(index+1,usersCourses[chosenTerm_index].length +1);
       if(a===[] && b===[]){
         usersCourses[chosenTerm_index] = [];
         res.redirect("/edit");
       }else{
-        console.log(a, b)
         usersCourses[chosenTerm_index] = a.concat(b);
         res.redirect("/edit");
       }

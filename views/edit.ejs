@@ -8,7 +8,7 @@
             <div class="chosen-course">
               <%= currentTermCourses[i] %>
               <form class="" action="/edit" method="post" style="margin: 0px;">
-                <button class="remove-course" name="name" value= <%= i %>>
+                <button class="remove-course-button" name="removeCourse" value= <%= i %>>
                   Remove
                 </button>
               </form>
@@ -17,61 +17,26 @@
         </div>
 
         <div class="avaliable-courses-header">
-          <h2>Avaliable Courses</h2>
+          Avaliable Courses
         </div>
 
-
-        <div class="card">
-            <form class="allForms" action="edit/" method="post">
-              <button class="add" name="name" value="add-course">
+        <% for (var z=0; z<allCourses.length; z++){ %>
+        <div class="course-card">
+            <form class="add-course-form allForms" action="edit/" method="post">
+              <button class="add-course-button" name="addCourse" value=<%=z%>>
                   Add Course
               </button>
             </form>
-            <div class="cardCourse">
-                <div class="cardCourseName">
-                <h2>COURSE - CSE 20</h2>
-                </div>
-                  <p class="cardCourseDescription">
-                    Description :
-                    <br><br>
-                    Learn the fundamentals of the Python programming language. From basic syntax to recursion, CSE 20 will introduce you.... ( No prior programming experience required ).
-                    Learn the fundamentals of the Python programming language. From basic syntax to recursion, CSE 20 will introduce you.... ( No prior programming experience required )
-                    Learn the fundamentals of the Python programming language. From basic syntax to recursion, CSE 20 will introduce you.... ( No prior programming experience required )
-                  </p>
-                </div>
+            <div class="card-course-name">
+              <%=allCourses[z]%>
             </div>
+            <p class="card-course-description">
+              Description :
+              <br><br>
+              *This is where the description will go. The description will be pulled from the database.
+            </p>
         </div>
-        <div class="card">
-            <div class="add">
-                Add Class
-            </div>
-            <div class="cardCourse">
-                <div class="cardCourseName">
-                <h2>COURSE - CSE 30</h2>
-                </div>
-                <div class="cardCourseDescription">
-                    <p class="description">Description :
-                    <br><br>
-                    Learn more advanced Python concepts, such as Trees, Stacks, and...
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="add">
-                Add Class
-            </div>
-            <div class="cardCourse">
-                <div class="cardCourseName">
-                <h2>COURSE - CSE 12</h2>
-                </div>
-                <div class="cardCourseDescription">
-                    <p class="description">Description :
-                    <br><br>
-                    Get fucked over by MIPS assembly....
-                    </p>
-                </div>
-            </div>
-        </div>
+        <% } %>
+
     <script src="index.js" charset="utf-8"></script>
 <%- include("footer")-%>
