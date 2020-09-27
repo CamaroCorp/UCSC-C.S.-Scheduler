@@ -11,6 +11,7 @@
 .header h1{
   margin: 0px;
 }
+
 .logo-div{
   display: inline-block;
 
@@ -26,23 +27,29 @@
   bottom: 5px;
 }
 
-.nav-links ul{
-  padding: 0px;
-}
-
-.nav-links li {
+.link{
     display: inline;
+    background-color: #ffc93c;
+    font-family: serif;
+    border: 0px;
+    font-size: 16px;
 }
 
-.nav-links li a {
-    text-decoration: none;
-    color: #000000;
-    padding-left: 15px;
-    padding-right: 15px;
+.link button{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.nav-links li a:hover {
-    color: #bae8ff;
+.link a{
+  color: black;
+}
+
+.link a:hover{
+  color: blue;
+}
+
+.link:hover{
+  color: blue;
 }
 
 /* SCHEDULER PAGE */
@@ -218,8 +225,8 @@
     position: absolute;
     right: 0px;
     top: 7px;
-    width: 35%;
-    margin: 2px 2px 2px 0px;
+    width: 20%;
+    margin: 2px 7px 2px 0px;
 }
 
 .add-course-button:hover {
@@ -234,9 +241,10 @@
     background-color: #bae8ff;
     border-radius: 5px;
     display: inline-block;
-    padding: 5px;
-    margin: 2px 0px 2px 2px;
-    width: 60%;
+    padding: 10px 0px 0px;
+    margin: 7px 0px 5px 7px;
+    width: 73%;
+    height: 11%;
 }
 
 .card-course-description {

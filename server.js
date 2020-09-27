@@ -2,7 +2,7 @@
 //////Bring in Libraries from npm(online repo of node moddules/libraries)//////
 const express = require("express");
 const bodyParser = require("body-parser");
-MongoClient = require('mongodb').MongoClient;
+const mongoose = require("mongoose");
 ObjectId = require('mongodb').ObjectID;
 assert = require('assert');
 //////////Create Library Objects/////////////////
@@ -22,34 +22,118 @@ app.use(express.static(__dirname + '/public'));
 
 
 /////////////////////////////////////////////Set-up/create your MONGODB DATABASE///////////////////////////////////////
-const url = 'mongodb://localhost:27017'; //database connection URL
-const dbName = 'scheduleDB'; //database dbName
-const client = new MongoClient(url, {useUnifiedTopology: true});//create a new instance of MongoClient
-////////////////////CONNECT your database(Client) to this SERVER via port 27017////////////////////////
-client.connect(function(err){
-  assert.equal(null, err);
-  console.log("Mongodb connected successfully to the server via port 27017");
-  db = client.db(dbName); //assign db object
-});
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+mongoose.connect("mongodb://localhost:27017/schedulerDB", { useNewUrlParser: true, useUnifiedTopology: true });
+const quartersSchema = {
+  courses: Array,
+  year: String
+};
 
+const Quarter = mongoose.model("Quarter", quartersSchema);
+
+const q1 = new Quarter({
+  courses:["CSE 20","MATH 19A","STEV 1"],
+  year: "Freshman"
+});
+const q2 = new Quarter({
+  courses:['WRIT 1','STEV 2','CSE 30'],
+  year: "Freshman"
+});
+const q3 = new Quarter({
+  courses:['INVOLUNTARY LEAVE OF ABSENSE'],
+  year: "Freshman"
+});
+const q4 = new Quarter({
+  courses:['MATH 19B','MATH 21','HIS 10A','THEA 14','STAT 131','MATH 23A'],
+  year: "Freshman"
+});
+const q5 = new Quarter({
+  courses:[],
+  year: "Sophomore"
+});
+const q6 = new Quarter({
+  courses:[],
+  year: "Sophomore"
+});
+const q7 = new Quarter({
+  courses:[],
+  year: "Sophomore"
+});
+const q8 = new Quarter({
+  courses:[],
+  year: "Sophomore"
+});
+const q9 = new Quarter({
+  courses:[],
+  year: "Junior"
+});
+const q10 = new Quarter({
+  courses:[],
+  year: "Junior"
+});
+const q11 = new Quarter({
+  courses:[],
+  year: "Junior"
+});
+const q12 = new Quarter({
+  courses:[],
+  year: "Junior"
+});
+const q13 = new Quarter({
+  courses:[],
+  year: "Senior"
+});
+const q14 = new Quarter({
+  courses:[],
+  year: "Senior"
+});
+const q15 = new Quarter({
+  courses:[],
+  year: "Senior"
+});
+const q16 = new Quarter({
+  courses:[],
+  year: "Senior"
+});
+
+const defaultCourses = [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16];
 
 ////////Load the home page "schedule.ejs" (i.e. schedule.ejs "gets" "/" from app.js)/////////
 app.get("/", function(req, res) {
   //Express (using ejs) finds & modifies the schedule.ejs file
-  res.render("schedule",{
-    usersCourses: usersCourses,
-    seasons: seasons,
-    years: years
+  Quarter.find({}, function(err, foundQuarters){
+    if (foundQuarters.length === 0){
+      Quarter.insertMany(defaultCourses,function(err){
+        if (err){
+          console.log(err);
+        }else{
+          console.log("Successfully inserted default items into database");
+        }
+      });
+      res.redirect("/");
+    }else{
+      res.render("schedule",{
+        usersCourses: foundQuarters,
+        seasons: seasons,
+        years: years
+      });
+    }
   });
 });
 ////////////////////////////////////////////////////////////////////////////////
 app.post("/", function(req, res){
-  if(req.body.name === "add-year"){
+  if(req.body.addYear){
+    let yearsLength = req.body.addYear;
+    numOfQuarters = yearsLength * 4;
+    for(i=0; i<4; i++){
+      const quarter = new Quarter({
+        courses: [],
+        year: "Super"
+      });
+      quarter.save();
+    }
     years.push("Super");
-    usersCourses.push([],[],[],[]);
     res.redirect("/");
-  }else if(req.body.name === "remove-year" && years.length>4){
+  }else if(req.body.a === "remove-year" && years.length>4){
     years.pop();
     usersCourses.pop([],[],[],[]);
     res.redirect("/");
@@ -96,7 +180,9 @@ app.post("/edit", function(req, res){
   }
 });
 
-
+app.post("/redirect", function(req, res){
+  res.redirect("/");
+});
 //////fire up the server
 app.listen(3000, function() {
   console.log("Server started on port 3000");
