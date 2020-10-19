@@ -15,6 +15,7 @@ let currentTerm = "Undefined";
 let seasons = ["Fall", "Winter", "Spring", "Summer"];
 let years = ["Freshman", "Sophomore", "Junior", "Senior"];
 let chosenTerm_index = 0;
+let quarterCount = 0;
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -106,6 +107,7 @@ app.get("/", function(req, res) {
         if (err){
           console.log(err);
         }else{
+          quarterCount = 16;
           console.log("Successfully inserted default items into database");
         }
       });
@@ -122,22 +124,28 @@ app.get("/", function(req, res) {
 ////////////////////////////////////////////////////////////////////////////////
 app.post("/", function(req, res){
   if(req.body.addYear){
-    let yearsLength = req.body.addYear;
-    numOfQuarters = yearsLength * 4;
-    for(i=0; i<4; i++){
+    quarterCount += 4;
+    for(i=quarterCount/4-4; i<quarterCount/4; i++){
       const quarter = new Quarter({
         courses: [],
-        year: "Super"
+        year: "Super" + i
       });
       quarter.save();
     }
     years.push("Super");
     res.redirect("/");
-  }else if(req.body.a === "remove-year" && years.length>4){
+  }else if(req.body.removeYear){
+    if (quarterCount < 20){
+      res.redirect("/");
+    }
+    let yearToDelete = "Super" + quarterCount;
+    Quarter.deleteMany({year: yearToDelete}, function (err) {
+      assert.equal(err, null);
+      console.log("Removed a year");
+    });
     years.pop();
-    usersCourses.pop([],[],[],[]);
     res.redirect("/");
-  }else if((req.body.name === "remove-year" && years.length<=4) || (req.body.name === "add-year" && year.length>=8)){
+  }else if((req.body.name === "remove-year" && yearsLength<=4) || (req.body.name === "add-year" && yearsLength>6)){
     res.redirect("/");
   }else{
     ////redirect to the edit page
