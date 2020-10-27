@@ -125,10 +125,11 @@ app.get("/", function(req, res) {
 app.post("/", function(req, res){
   if(req.body.addYear){
     quarterCount += 4;
+    superIndex = quarterCount/4;
     for(i=quarterCount/4-4; i<quarterCount/4; i++){
       const quarter = new Quarter({
         courses: [],
-        year: "Super" + i
+        year: "Super " + superIndex
       });
       quarter.save();
     }
@@ -138,7 +139,7 @@ app.post("/", function(req, res){
     if (quarterCount < 20){
       res.redirect("/");
     }
-    let yearToDelete = "Super" + quarterCount;
+    let yearToDelete = "Super" + quarterCount/4;
     Quarter.deleteMany({year: yearToDelete}, function (err) {
       assert.equal(err, null);
       console.log("Removed a year");
