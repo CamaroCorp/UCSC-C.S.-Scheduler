@@ -6,29 +6,29 @@ This is a webapp for planning computer science degree at UCSC.
 _________________________________________________________________
 FILES
 
------------------------------
+-
 server.js
 
 This file contains the application server.
 
------------------------------
+-
 views/edit.ejs
 
 Contains the javascript template for the "edit" page within the web app.
 The edit page imports/displays the users courses for a given quarter, and 
 gives enables editing capabilities.
 
------------------------------
+-
 views/footer.ejs
 
 Contains the HTML code for the page footer.
 
------------------------------
+-
 views/header.ejs
 
 Contains the HTML code for the page header
 
------------------------------
+-
 veiws/schedule.ejs
 
 Contains the javascript template for the "schedule" page within the web app.
